@@ -15,6 +15,8 @@
 ## Overview
 My Diary is a full-stack web application that allows users to create, edit, filter, and manage personal diary entries with mood and tag categorization.
 
+![Home page](./demo/home-page.png)
+
 ## Features
 - Create, read, update, and delete diary entries
 - Filter diaries by mood and tag
@@ -22,6 +24,8 @@ My Diary is a full-stack web application that allows users to create, edit, filt
 - Responsive UI with modal dialogs
 - MongoDB integration for persistent storage
 - RESTful API backend
+
+![Add Diary](./demo/add-diary.png)
 
 ## 🛠️ Tech Stack
 - **Frontend:** HTML5, CSS3, JavaScript (Vanilla), Axios
