@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Tab title 分頁上的標題 -->
+    <title> My Diary App </title>
+    <script defer src="script.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.0/axios.min.js"
+      integrity="sha512-aoTNnqZcT8B4AmeCFmiSnDlc4Nj/KPaZyB5G7JnOnUEkdNpCZs1LCankiYi01sLTyWy+m2P+W4XM+BuQ3Q4/Dg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+
+  <body>
+    <!-- Topic and Buttons on the top-->
+    <h1> My Diary </h1>
+    <button id="addDiaryBtn"> Add Diary 新增日記 </button>
+    <button id="viewDiaryDataBtn"> View Diary Data 檢視日記資訊 </button>
+    <button id="FilterBtn"> Filter Diary 篩選日記 </button>
+    <select id="FilterSelect">
+      <option value="None 無"> None 無 </option>
+      <option value="Happy 快樂"> Happy 快樂 </option>
+      <option value="Angry 生氣"> Angry 生氣 </option>
+      <option value="Sad 難過"> Sad 難過 </option>
+      <option value="Study 學業"> Study 學業 </option>
+      <option value="Relationship 人際"> Relationship 人際 </option>
+      <option value="Group 社團"> Group 社團 </option>
+    </select>
+
+    <!-- Add Diary Modal 新增日記 -->
+    <div id="addDiaryModal" class="modal">
+      <div class="modal-content">
+        <span id="closeAddDiaryModal" class="close-modal">&times;</span>
+        <h2> Add diary </h2>
+        <label for="diaryDate"> Date: </label>
+        <!-- 透過 HTML 中 input 的設定，限制使用者只能選取合法日期 -->
+        <input type="date" id="diaryDate" />
+        <textarea id="diaryContent" placeholder="Enter Content..."></textarea>
+        <label for="moodSelect"> Mood: </label>
+        <select id="moodSelect">
+          <option value="Happy 快樂"> Happy 快樂 </option>
+          <option value="Angry 生氣"> Angry 生氣 </option>
+          <option value="Sad 難過"> Sad 難過 </option>
+        </select>
+        <label for="tagSelect"> Tag: </label>
+        <select id="tagSelect">
+          <option value="Study 學業"> Study 學業 </option>
+          <option value="Relationship 人際"> Relationship 人際 </option>
+          <option value="Group 社團"> Group 社團 </option>
+        </select>
+        <button id="saveDiaryBtn"> Save </button>
+      </div>
+    </div>
+
+    <!-- Diary Container -->
+    <section id="diarycontainer"></section>
+
+    <!-- Edit Diary Modal -->
+    <div id="editDiaryModal" class="modal">
+      <div class="modal-content">
+        <span id="closeEditDiaryModalbtn" class="close-modal">&times;</span>
+        <h2> Edit Diary </h2>
+        <label for="editDiaryDate"> Date: </label>
+        <input type="date" id="editDiaryDate" />
+        <textarea
+          id="editDiaryContent"
+          placeholder="Enter Content..."
+        ></textarea>
+        <label for="editMoodSelect"> Mood: </label>
+        <select id="editMoodSelect">
+          <option value="Happy 快樂"> Happy 快樂 </option>
+          <option value="Angry 生氣"> Angry 生氣 </option>
+          <option value="Sad 難過"> Sad 難過 </option>
+        </select>
+        <label for="editTagSelect"> Tag: </label>
+        <select id="editTagSelect">
+          <option value="Study 學業"> Study 學業 </option>
+          <option value="Relationship 人際"> Relationship 人際 </option>
+          <option value="Group 社團"> Group 社團 </option>
+        </select>
+        <button id="saveEditBtn"> Save </button>
+      </div>
+    </div>
+
+    <template id="diary-card-template">
+      <details id="" class="diary-card">
+        <summary>
+          <div>
+            <p class="diary-date"> date </p>
+            <p class="diary-mood"> mood </p>
+            <p class="diary-tag"> tag </p>
+          </div>
+        </summary>
+        <p class="diary-content"> content </p>
+        <button data-id="" class="edit-button"> Edit 編輯 </button>
+        <button data-id="" class="delete-diary"> Delete 刪除 </button>
+      </details>
+    </template>
+  </body>
+</html>
