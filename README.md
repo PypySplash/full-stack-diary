@@ -1,7 +1,5 @@
 # Full-stack application - My Diary
 
-# Web Programming HW#1
-
 ## Table of Contents
 - [Overview](#overview)
 - [Features](#features)
