@@ -86,16 +86,16 @@ Open `frontend/index.html` in your browser to launch the web app. Everything sho
 
 
 
-## Advanced Features Implementation 進階條件實作內容說明
+## Advanced Features Implementation
 
-### 1. Restricting Selection to Valid Dates 限制選取合法日期
-Uses HTML5 date input to restrict users to selecting only valid dates through the browser's built-in date picker. 透過 html 中的 input 設定，限制使用者只能選取合法日期。
+### 1. Restricting Selection to Valid Dates
+Uses HTML5 date input to restrict users to selecting only valid dates through the browser's built-in date picker.
 
 ```html
 <input type="date" id="diaryDate" />
 ```
 
-### 2. Filtering Diary Cards by Mood and Tag 利用心情以及標籤篩選日記卡
+### 2. Filtering Diary Cards by Mood and Tag
 A diary filtering feature is implemented in `script.js` on the frontend. The implementation follows these steps:
 
 - Remove all currently rendered diary card elements from the DOM.
@@ -105,28 +105,26 @@ A diary filtering feature is implemented in `script.js` on the frontend. The imp
 
 This approach avoids additional backend requests and achieves client-side filtering efficiently.
 
-在前端的 script.js 中，新增一個篩選日記卡功能。先刪除所有當前的日記卡片元素，保留前端快取資料，若選擇"無"則重新渲染所有日記卡；否則過濾出符合指定心情或標籤的日記條目並重新渲染。
-
 ```javascript
 FilterDiaryBtn.addEventListener("click", function () {
   const ThingToFilter = document.getElementById("FilterSelect").value;
 
-  // Remove all currently rendered diary card elements 刪除所有當前的日記卡片元素
+  // Remove all currently rendered diary card elements
   const diaryCards = document.querySelectorAll("details");
   diaryCards.forEach((card) => card.remove());
 
-  // If no filtering is selected, re-render all diary entries 檢查 ThingToFilter 是否為"None 無"
+  // If no filtering is selected, re-render all diary entries
   if (ThingToFilter === "None 無") {
     diaryData.forEach((entry) => {
       render_diary(entry);
     });
   } else {
-    // Filter diary entries by mood or tag 過濾出符合指定心情（或標籤）的日記條目
+    // Filter diary entries by mood or tag
     const filteredDiaries = diaryData.filter(
       (entry) => entry.mood === ThingToFilter || entry.tag === ThingToFilter,
     );
 
-    // Re-render filtered diary entries 重新渲染過濾後的日記條目
+    // Re-render filtered diary entries
     filteredDiaries.forEach((entry) => {
       render_diary(entry);
     });
